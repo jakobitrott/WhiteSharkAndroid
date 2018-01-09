@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.andyl.utilitywisescanner">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature    android:name="android.hardware.camera2"/>
 
     <application
         android:allowBackup="true"
@@ -34,6 +37,11 @@
         </activity>
         <activity android:name=".WebActivity"
             android:label="More on Utilitywise" />
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+        <activity android:name=".Scanner"></activity>
     </application>
 
 </manifest>
