@@ -9,19 +9,17 @@ import android.webkit.WebViewClient;
 
 public class WebActivity extends AppCompatActivity {
     WebView wv;
-
-    @Override
-    public void onBackPressed(){
-        if(wv.canGoBack()){
-            wv.goBack();
-        }
-        else {
-            super.onBackPressed();
-        }
-    }
+    SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new SharedPref(this);
+
+        if (sharedPref.loadDarkModeState() == true){
+            setTheme(R.style.DarkTheme);
+        }
+        else setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
         wv = (WebView)findViewById(R.id.webview);
@@ -39,5 +37,15 @@ public class WebActivity extends AppCompatActivity {
         // Load Url
         wv.loadUrl("https://www.utilitywise.com/");
         wv.setWebViewClient(new WebViewClient());
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(wv.canGoBack()){
+            wv.goBack();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }

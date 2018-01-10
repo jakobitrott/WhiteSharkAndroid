@@ -1,6 +1,8 @@
 package com.example.andyl.utilitywisescanner;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -33,6 +35,9 @@ public class DetectQRActivity extends AppCompatActivity {
                     txtView.setVisibility(View.INVISIBLE);
                 }
             }, 3000);
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            // Vibrate for 500 milliseconds
+            v.vibrate(500);
 
             Intent i = new Intent(DetectQRActivity.this, RegistrationActivity.class);
             i.putExtra("DEVICE_ID", txtView.getText());

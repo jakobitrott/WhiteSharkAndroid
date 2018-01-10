@@ -17,5 +17,14 @@
     <string name="about">About</string>
     <string name="about_desc">"Discover more on our website."</string>
 
+    <string name="device">Device Name</string>
+    <string name="dName">DeviceName</string>
+
+    <string name="dNumber">Device Number</string>
+    <string name="dNo">ID from QR</string>
+
+    <string name="spNumber">SmartPlug ID</string>
+    <string name="spNo">ID from Firebase"</string>
+
     <string name="action_settings">Settings</string>
 </resources>
