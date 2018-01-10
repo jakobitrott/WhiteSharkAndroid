@@ -1,15 +1,9 @@
 package com.example.andyl.utilitywisescanner;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +13,9 @@ import com.google.zxing.client.android.BeepManager;
 import com.journeyapps.barcodescanner.BarcodeCallback;
 import com.journeyapps.barcodescanner.BarcodeResult;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
-
 import java.util.List;
 
-public class Scanner extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DetectQRActivity extends AppCompatActivity {
 
     private DecoratedBarcodeView barcodeView;
     private BeepManager beepManager;
@@ -31,10 +24,6 @@ public class Scanner extends AppCompatActivity implements NavigationView.OnNavig
     private BarcodeCallback callback = new BarcodeCallback() {
         @Override
         public void barcodeResult(BarcodeResult result) {
-//            if (result.getText() == null || result.getText().equals(lastText)) {
-//                // Prevent duplicate scans
-//                return;
-//            }
 
             txtView = (TextView) findViewById(R.id.txtView);
             txtView.setText(result.getText());
@@ -44,6 +33,11 @@ public class Scanner extends AppCompatActivity implements NavigationView.OnNavig
                     txtView.setVisibility(View.INVISIBLE);
                 }
             }, 3000);
+
+            Intent i = new Intent(DetectQRActivity.this, RegistrationActivity.class);
+            i.putExtra("DEVICE_ID", txtView.getText());
+            startActivity(i);
+            finish();
 
             // Beeps when the code is scanned - Can be deleted if not necessary
 //            beepManager.playBeepSoundAndVibrate();
@@ -61,33 +55,26 @@ public class Scanner extends AppCompatActivity implements NavigationView.OnNavig
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scanner_layout);
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        setContentView(R.layout.activity_detectqr);
 
         Toast.makeText(this,
-                "Barcode created!",
+                "Please scan a QR Code to register a new device",
                 Toast.LENGTH_SHORT)
                 .show();
 
         barcodeView = (DecoratedBarcodeView) findViewById(R.id.barcode_scanner);
         barcodeView.decodeContinuous(callback);
-
-//        beepManager = new BeepManager(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         barcodeView.resume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         barcodeView.pause();
     }
 
@@ -110,29 +97,6 @@ public class Scanner extends AppCompatActivity implements NavigationView.OnNavig
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(getApplicationContext(), WebActivity.class);
-        startActivity(i);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_device) {
-
-        }
-        else if (id == R.id.nav_settings) {
-            Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(i);
-        }
-        else if (id == R.id.nav_webview) {
-            Intent i = new Intent(getApplicationContext(), WebActivity.class);
-            startActivity(i);
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout2);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        finish();
     }
 }
