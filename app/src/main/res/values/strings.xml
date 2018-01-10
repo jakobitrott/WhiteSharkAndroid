@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Utilitywise Scanner</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">MainActivity</string>
+
+    <string name="scan">Scan QR Code</string>
+    <string name="scan_desc">"Detect a QR Code to display a device's details."</string>
+
+    <string name="add">Add new device</string>
+    <string name="add_desc">"Register a new device by scanning a QR Code."</string>
+
+    <string name="settings">Settings</string>
+    <string name="settings_desc">"Change app settings."</string>
+
+    <string name="about">About</string>
+    <string name="about_desc">"Discover more on our website."</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
