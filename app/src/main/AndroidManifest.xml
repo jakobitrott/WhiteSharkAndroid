@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.andyl.utilitywisescanner">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -22,18 +23,20 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".SettingsActivity"
             android:label="Settings"
             android:parentActivityName=".MainActivity">
             <meta-data
+                tools:replace="android:value"
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".WebActivity"
+        <activity
+            android:name=".WebActivity"
             android:label="More on Utilitywise" />
+        <activity android:name=".InputDataActivity"></activity>
     </application>
 
 </manifest>

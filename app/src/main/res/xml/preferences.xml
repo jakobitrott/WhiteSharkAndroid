@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <android.support.v7.preference.SwitchPreferenceCompat
-            android:defaultValue="false"
-            android:key="dark_mode"
-            android:summary="Apply a darker colour to the application's background."
-            android:title="Dark Mode" />
+        <!--<android.support.v7.preference.SwitchPreferenceCompat-->
+            <!--android:defaultValue="false"-->
+            <!--android:key="dark_mode"-->
+            <!--android:summary="Apply a darker colour to the application's background."-->
+            <!--android:title="Dark Mode"-->
+            <!--android:background="?attr/colorAccent"/>-->
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginTop="8dp">-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical"-->
+            <!--android:padding="10dp">-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textStyle="bold"-->
+                <!--android:textColor="?attr/textcolor"/>-->
+        <!--</LinearLayout>-->
+    <!--</android.support.v7.widget.CardView>-->
 
 </PreferenceScreen>
